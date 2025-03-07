@@ -1,0 +1,14 @@
+rc: ./.lefthookrc
+
+pre-commit:
+  piped: true
+  commands:
+    1-tsc-compilation:
+      glob: '*.{ts,tsx}'
+      run: npm run typecheck
+    2-linting:
+      glob: '*.{js,ts,tsx}'
+      run: npx eslint {staged_files} --fix && git add {staged_files}
+    3-formatting:
+      glob: '*.{js,ts,tsx,css,scss,md,json}'
+      run: npx prettier --write {staged_files} && git add {staged_files}
