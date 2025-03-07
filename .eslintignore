@@ -1,0 +1,10 @@
+.docker
+.react-router
+build
+node_modules
+.dockerignore
+.eslintignore
+.gitignore
+.prettierignore
+package-lock.json
+package.json
