@@ -1,9 +1,9 @@
 import axios from 'axios'
 
-import type { NewsRequestParams } from './news-request-params'
+import type { NewsSearchParams } from './news-search-params'
 import type { Article } from './types/article'
 
-export const fetchNewsApi = async (params: NewsRequestParams): Promise<Article[]> => {
+export const fetchNewsApi = async (params: NewsSearchParams): Promise<Article[]> => {
   const response = await axios.get('https://newsapi.org/v2/everything', {
     params: {
       ...params,
