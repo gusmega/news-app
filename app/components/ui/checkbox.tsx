@@ -4,6 +4,9 @@ import * as React from 'react'
 
 import { cn } from '~/lib/utils'
 
+import type { checkboxGroupProps } from './checkbox.type'
+import { Label } from './label'
+
 function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
   return (
     <CheckboxPrimitive.Root
@@ -24,4 +27,18 @@ function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxP
   )
 }
 
-export { Checkbox }
+function CheckboxGroup({ label, name, options }: checkboxGroupProps) {
+  return (
+    <div>
+      <Label className='mb-2'>{label}</Label>
+      {options.map((option) => (
+        <div key={option.value} className='my-1 flex items-center space-x-2'>
+          <Checkbox id={option.value} name={name} />
+          <Label htmlFor={option.value}>{option.label}</Label>
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export { Checkbox, CheckboxGroup }
