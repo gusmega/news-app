@@ -1,6 +1,7 @@
 import * as CheckboxPrimitive from '@radix-ui/react-checkbox'
 import { CheckIcon } from 'lucide-react'
 import * as React from 'react'
+import { useController, useFormContext } from 'react-hook-form'
 
 import { cn } from '~/lib/utils'
 
@@ -28,12 +29,25 @@ function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxP
 }
 
 function CheckboxGroup({ label, name, options }: checkboxGroupProps) {
+  const { control } = useFormContext()
+  const {
+    field: { value = [], onChange },
+  } = useController({ name, control })
+
+  const onClick = (selectedValue: string) => {
+    const newValue = value.includes(selectedValue)
+      ? value.filter((v: string) => v !== selectedValue)
+      : [...value, selectedValue]
+
+    onChange(newValue)
+  }
+
   return (
     <div>
       <Label className='mb-2'>{label}</Label>
       {options.map((option) => (
         <div key={option.value} className='my-1 flex items-center space-x-2'>
-          <Checkbox id={option.value} name={name} />
+          <Checkbox id={option.value} onClick={() => onClick(option.value)} />
           <Label htmlFor={option.value}>{option.label}</Label>
         </div>
       ))}

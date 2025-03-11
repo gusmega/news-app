@@ -1,7 +1,7 @@
 import type { DayPickerSingleProps } from 'react-day-picker'
 
 export type DatePickerProps = {
+  name: string
   label: string
-  selected?: Date
   placeholder?: string
 } & Omit<DayPickerSingleProps, 'mode'>

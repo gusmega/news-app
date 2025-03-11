@@ -33,7 +33,7 @@ function NewsItem({ article }: NewsItemProps) {
         />
 
         <div className='flex flex-1 flex-col px-3 pb-4'>
-          <p className='text-foreground/55 text-sm font-semibold'>{meta}</p>
+          <p className='text-foreground/55 line-clamp-1 text-sm font-semibold'>{meta}</p>
           <h5 className='line-clamp-2'>{article.title}</h5>
           <p className='text-foreground/70 line-clamp-3'>{article.description}</p>
         </div>

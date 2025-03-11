@@ -1,7 +1,7 @@
 export type NewsSearchParams = {
   q?: string
-  from?: string
-  to?: string
+  from?: Date
+  to?: Date
   categories?: string[]
   sources?: string[]
 }
