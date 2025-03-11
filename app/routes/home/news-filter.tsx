@@ -13,7 +13,7 @@ export function NewsFilter() {
   return (
     <Collapsible className='mt-8 mb-6 w-full space-y-2'>
       <div className='flex items-center justify-between space-x-2'>
-        <Input placeholder='Search keywords' />
+        <Input name='q' placeholder='Search keywords' />
         <CollapsibleTrigger asChild>
           <Button variant='secondary'>
             <ListFilter className='h-4 w-4' />
