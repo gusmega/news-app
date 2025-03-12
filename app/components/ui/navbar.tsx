@@ -15,9 +15,6 @@ export function Navbar() {
               <NavigationMenuLink asChild>
                 <Link to='/'>Home</Link>
               </NavigationMenuLink>
-              <NavigationMenuLink asChild>
-                <Link to='about'>About</Link>
-              </NavigationMenuLink>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
