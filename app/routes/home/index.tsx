@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { fetchNewsApi } from '~/api/fetch-news-api'
-import type { NewsSearchParams } from '~/api/news-search-params'
+import type { NewsSearchParams } from '~/api/types/news-search-params'
 
 import type { Route } from './+types/index'
 import { News } from './news'

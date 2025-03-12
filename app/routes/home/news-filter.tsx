@@ -3,7 +3,7 @@ import { Filter, ListFilter, OctagonX } from 'lucide-react'
 import { useEffect, useRef } from 'react'
 import { useForm, useWatch } from 'react-hook-form'
 
-import type { NewsSearchParams } from '~/api/news-search-params'
+import type { NewsSearchParams } from '~/api/types/news-search-params'
 import { Button } from '~/components/ui/button'
 import { CheckboxGroup } from '~/components/ui/checkbox'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '~/components/ui/collapsible'
