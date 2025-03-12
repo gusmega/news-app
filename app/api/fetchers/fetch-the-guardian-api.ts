@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-import type { NewsSearchParams } from './news-search-params'
-import type { Article } from './types/article'
+import type { Article } from '../types/article'
+import type { NewsSearchParams } from '../types/news-search-params'
 
 const API_URL = 'https://content.guardianapis.com/search'
 
