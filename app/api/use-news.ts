@@ -5,10 +5,9 @@ import { combineAndSortNews } from './helpers/news-api-helper'
 import { newsApiQueryOptions } from './query-options/news-api-qo'
 import { nytQueryOptions } from './query-options/nyt-api-qo'
 import { theGuardianQueryOptions } from './query-options/the-guardian-qo'
-import type { Article } from './types/article'
 import type { NewsSearchParams } from './types/news-search-params'
 
-export const useNews = (searchParams: NewsSearchParams, initialData: Record<string, Article[]>) => {
+export const useNews = (searchParams: NewsSearchParams) => {
   const params = omit(searchParams, ['source'])
 
   const sources = searchParams.sources
@@ -20,9 +19,9 @@ export const useNews = (searchParams: NewsSearchParams, initialData: Record<stri
 
   return useQueries({
     queries: [
-      newsApiQueryOptions(params, enableNewsApi, initialData?.['news-api']),
-      theGuardianQueryOptions(params, enableTheGuardian, initialData?.['the-guardian']),
-      nytQueryOptions(params, enableNyt, initialData?.nyt),
+      newsApiQueryOptions(params, enableNewsApi),
+      theGuardianQueryOptions(params, enableTheGuardian),
+      nytQueryOptions(params, enableNyt),
     ],
     combine: (results) => {
       return {

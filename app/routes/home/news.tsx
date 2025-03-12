@@ -6,8 +6,8 @@ import { NewsError } from './news-error'
 import { NewsLoading } from './news-loading'
 import type { NewsProps } from './type'
 
-export function News({ initialData, searchParams }: NewsProps) {
-  const { data, isFetching, isError } = useNews(searchParams, initialData)
+export function News({ searchParams }: NewsProps) {
+  const { data, isFetching, isError } = useNews(searchParams)
 
   if (isError) return <NewsError />
 

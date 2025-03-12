@@ -6,6 +6,6 @@ export type NewsFilterProps = {
 }
 
 export type NewsProps = {
-  initialData: Record<string, Article[]>
+  initialData?: Record<string, Article[]>
   searchParams: NewsSearchParams
 }
