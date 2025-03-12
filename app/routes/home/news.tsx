@@ -1,18 +1,10 @@
-import { useQuery } from '@tanstack/react-query'
-
-import { fetchNewsApi } from '~/api/fetch-news-api'
+import { useNews } from '~/api/use-news'
 import NewsItem from '~/components/ui/news-item'
 
 import type { NewsProps } from './type'
 
 export function News({ initialData, searchParams }: NewsProps) {
-  const { data, isFetching } = useQuery({
-    queryKey: ['news', searchParams],
-    queryFn: () => fetchNewsApi(searchParams),
-    initialData,
-    refetchOnMount: false,
-    refetchOnWindowFocus: false,
-  })
+  const { data, isFetching } = useNews(searchParams, initialData)
 
   if (isFetching) return null
 

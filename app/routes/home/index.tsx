@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import { fetchNewsApi } from '~/api/fetch-news-api'
+import { fetchAllNews } from '~/api/fetchers/fetch-all-news'
 import type { NewsSearchParams } from '~/api/types/news-search-params'
 
 import type { Route } from './+types/index'
@@ -15,7 +15,11 @@ export function meta() {
 }
 
 export async function loader() {
-  return await fetchNewsApi({})
+  try {
+    return await fetchAllNews()
+  } catch {
+    return {}
+  }
 }
 
 export default function Home({ loaderData }: Route.ComponentProps) {

@@ -10,7 +10,7 @@ export const sources: CheckboxOption[] = [
     label: 'The Guardian',
   },
   {
-    value: 'new-york-times',
+    value: 'nyt',
     label: 'New York Times',
   },
 ]

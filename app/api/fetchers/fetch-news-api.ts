@@ -25,7 +25,7 @@ const transformParams = (params: NewsSearchParams) => {
 const transformResults = (results: any[]): Article[] => {
   return results.map((result) => ({
     ...result,
-    source: 'the-news',
+    source: 'news-api',
   }))
 }
 
