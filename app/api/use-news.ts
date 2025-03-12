@@ -29,6 +29,7 @@ export const useNews = (searchParams: NewsSearchParams, initialData: Record<stri
         data: combineAndSortNews(results),
         isPending: results.some((result) => result.isPending),
         isFetching: results.some((result) => result.isFetching),
+        isError: results.every((result) => result.isError),
       }
     },
   })
