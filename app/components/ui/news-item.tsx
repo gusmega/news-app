@@ -9,6 +9,19 @@ function NewsItem({ article }: NewsItemProps) {
 
   if (article.author) meta += ` | ${article.author}`
 
+  const getNewsSource = () => {
+    switch (article.source) {
+      case 'nyt':
+        return 'New York Times'
+      case 'the-guardian':
+        return 'The Guardian'
+      case 'news-api':
+        return 'News API'
+      default:
+        return 'Unknown'
+    }
+  }
+
   return (
     <a
       href={article.url}
@@ -36,6 +49,10 @@ function NewsItem({ article }: NewsItemProps) {
           <p className='text-foreground/55 line-clamp-1 text-sm font-semibold'>{meta}</p>
           <h5 className='line-clamp-2'>{article.title}</h5>
           <p className='text-foreground/70 line-clamp-3'>{article.description}</p>
+        </div>
+
+        <div className='bg-primary/40 text- text-primary-foreground absolute top-2 left-2 rounded-sm p-2 text-xs font-semibold drop-shadow-md backdrop-blur'>
+          {getNewsSource()}
         </div>
 
         <div className='bg-background/5 bg-opacity-5 absolute flex aspect-3/2 w-full items-center justify-center opacity-0 backdrop-blur transition duration-300 group-hover/content:opacity-100'>
